@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set | Nail Inspiration</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">Set</div>
+      <nav class="tab-list" aria-label="Primary navigation">
+        <button class="tab active" data-view="gallery">Gallery</button>
+        <button class="tab" data-view="sets">My Sets</button>
+        <button class="tab" data-view="custom">Custom Set</button>
+        <button class="tab" data-view="tech">Show My Tech</button>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section id="gallery-view" class="view active">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Browse nail inspiration</p>
+            <h1>Gallery</h1>
+          </div>
+          <div class="gallery-summary" id="gallery-summary"></div>
+        </div>
+
+        <div class="filters-panel" id="filter-options"></div>
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </section>
+
+      <section id="sets-view" class="view">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Save your favorite looks</p>
+            <h1>My Sets</h1>
+          </div>
+          <button class="secondary-button" id="new-board-button">New Board</button>
+        </div>
+        <div class="boards-layout">
+          <aside class="board-list" id="board-list"></aside>
+          <div class="board-preview" id="board-preview"></div>
+        </div>
+      </section>
+
+      <section id="custom-view" class="view">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Select saved nails</p>
+            <h1>Custom Set</h1>
+          </div>
+        </div>
+        <div class="custom-body">
+          <div class="custom-controls">
+            <label class="select-label">
+              Choose a board
+              <select id="custom-board-select"></select>
+            </label>
+            <button class="primary-button" id="generate-button">Generate Custom Set</button>
+          </div>
+          <div id="custom-items" class="custom-items"></div>
+        </div>
+        <div id="custom-results" class="custom-results"></div>
+      </section>
+
+      <section id="tech-view" class="view">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Build a tech-ready inspo board</p>
+            <h1>Show My Tech</h1>
+          </div>
+        </div>
+        <div class="tech-body">
+          <label class="select-label">
+            Choose a board
+            <select id="tech-board-select"></select>
+          </label>
+          <div id="tech-collage" class="tech-collage"></div>
+          <div class="notes-panel">
+            <h2>Notes for your nail tech</h2>
+            <p>Example: use the shape from photo 1, color from photo 2, and details from photo 3.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="preview-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card">
+        <button class="modal-close" id="preview-close">×</button>
+        <img id="preview-image" src="" alt="" onerror="this.src='images/0ctyQ.jpg'" />
+        <div class="modal-copy">
+          <h2 id="preview-name"></h2>
+          <p id="preview-tags" class="tag-line"></p>
+          <div class="modal-actions">
+            <button class="outline-button" id="preview-save">Save to board</button>
+            <button class="primary-button" id="preview-custom">Add to Custom Set</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="board-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card small">
+        <button class="modal-close" id="board-close">×</button>
+        <h2>Save to a board</h2>
+        <label class="select-label">
+          Select board
+          <select id="board-select"></select>
+        </label>
+        <label class="input-label">
+          New board name
+          <input id="new-board-name" type="text" placeholder="Create a new board" />
+        </label>
+        <div class="modal-actions">
+          <button class="outline-button" id="board-cancel">Cancel</button>
+          <button class="primary-button" id="board-save">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
