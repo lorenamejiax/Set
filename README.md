@@ -1,46 +1,25 @@
 # Set 💅
 
-A beginner-friendly single-page nail inspiration app for browsing designs, saving favorites, organizing boards, and building a custom “show my tech” collage.
+Set is a single-page nail inspiration app for finding, saving, and organizing nail design ideas before an appointment.
 
----
+## Preview
 
-## Website Preview
+![Set app preview](./preview.png)
 
-<p align="center">
-  <img src="assets/preview.png" alt="Set website preview" width="850">
-</p>
+## What it does
 
----
-
-## What It Looks Like
-
-Set is designed like a clean Pinterest-style nail gallery with large image cards, soft rounded corners, filter tags, and save buttons.
-
-Users can browse nail designs by:
-
-- Color
-- Shape
-- Length
-- Theme
-- Style
-
----
-
-## Features
-
-- Image-first nail design gallery
-- Save favorite designs
-- Organize saved looks into themed boards
+- Browse nail designs in a Pinterest-style gallery
 - Filter by color, shape, and length
-- Preview nail designs with tags
-- Build a custom collage to show your nail tech
-- Saves boards using `localStorage`
+- Save favorite designs
+- Organize ideas into boards
+- Build a “show my tech” collage
+- Stores saved boards with `localStorage`
 
----
+## Why I made it
 
-## Run Locally
+Set helps users stop endless scrolling and quickly find the exact nail look they want before going to their nail tech.
 
-Open the project folder in your terminal and run:
+## Run locally
 
 ```bash
 python3 -m http.server 8000
