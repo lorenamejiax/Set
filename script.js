@@ -1,5 +1,5 @@
 const localImageFiles = [
-  '0ctyQ.jpg', '1VlnC.jpg', 'DAdam.jpg', 'F7pso.jpg', 'Hr3AC.jpg', 'IVPKJ.jpg', 'K2SbD.jpg', 'LEyyZ.jpg',
+  '0ctyQ.jpg', '1VlnC.jpg', 'limes and lemons.jpg', 'F7pso.jpg', 'Hr3AC.jpg', 'IVPKJ.jpg', 'K2SbD.jpg', 'LEyyZ.jpg',
   'LOeQ2.jpg', 'M85kl.jpg', 'Myroj.jpg', 'NPkEs.jpg', 'PlpW5.jpg', 'TEOq0.jpg', 'UjZdH.jpg', 'WLtj1.jpg',
   'XNmlH.jpg', 'eNAV2.jpg', 'gdyii.jpg', 'hkHiH.jpg', 'l1CXw.jpg', 'lnr4d.jpg', 'sZhWd.jpg', 'xSIxH.jpg', 'xhfD1.jpg'
 ];
@@ -19,7 +19,7 @@ const designData = [
   { name: '3D Aquatic', color: 'Blue', shape: 'Mixed', length: 'Long', tags: ['blue', '3d', 'aquatic'] },
   { name: 'Pastel French', color: 'Nude', shape: 'Square', length: 'Short', tags: ['pastel', 'french', 'clean'] },
   { name: 'Emerald Green', color: 'Green', shape: 'Stiletto', length: 'Long', tags: ['green', 'gloss', 'bold'] },
-  { name: 'Black Gloss', color: 'Black', shape: 'Mixed', length: 'Long', tags: ['black', 'gloss', 'bold'] },
+  { name: 'Black Galaxy', color: 'Black', shape: 'Mixed', length: 'Medium', tags: ['black', 'galaxy', 'multicolor'] },
   { name: 'White Lace', color: 'White', shape: 'Mixed', length: 'Medium', tags: ['white', 'lace', 'glossy'] },
   { name: 'Blue Starfish', color: 'Blue', shape: 'Mixed', length: 'Short', tags: ['blue', 'starfish', 'beach'] },
   { name: 'Green Sparkle', color: 'Green', shape: 'Square', length: 'Medium', tags: ['green', 'sparkle', 'accent'] },
@@ -32,14 +32,18 @@ const designData = [
   { name: 'Lemon Lime', color: 'Green', shape: 'Mixed', length: 'Medium', tags: ['green', 'yellow', 'fresh'] }
 ];
 
+function imagePath(file) {
+  return `images/${encodeURI(file)}`;
+}
+
 const nailDesigns = localImageFiles.map((file, index) => ({
   id: `design-${String(index + 1).padStart(2, '0')}`,
-  image: `images/${file}`,
+  image: imagePath(file),
   ...designData[index]
 }));
 
 const defaultBoards = ['Next Appointment', 'Birthday', 'Vacation', 'Everyday', 'Holiday'];
-const fallbackImage = 'images/0ctyQ.jpg';
+const fallbackImage = imagePath('0ctyQ.jpg');
 
 const elements = {
   tabs: document.querySelectorAll('.tab'),
@@ -150,11 +154,18 @@ function renderFilters() {
   });
 }
 
+function attributeMatches(value, filterValue) {
+  if (filterValue === 'All') return true;
+  const parts = value.toLowerCase().split(',').map((part) => part.trim());
+  const filter = filterValue.toLowerCase();
+  return parts.includes(filter);
+}
+
 function getFilteredDesigns() {
   return nailDesigns.filter((design) => {
-    const matchesColor = filters.color === 'All' || design.color === filters.color;
-    const matchesShape = filters.shape === 'All' || design.shape === filters.shape;
-    const matchesLength = filters.length === 'All' || design.length === filters.length;
+    const matchesColor = attributeMatches(design.color, filters.color);
+    const matchesShape = attributeMatches(design.shape, filters.shape);
+    const matchesLength = attributeMatches(design.length, filters.length);
     return matchesColor && matchesShape && matchesLength;
   });
 }
@@ -362,17 +373,17 @@ function handleGenerate() {
     {
       title: 'Clean',
       description: 'Soft minimal details with bright neutrals for a polished finish.',
-      image: 'images/LEyyZ.jpg'
+      image: imagePath('LEyyZ.jpg')
     },
     {
       title: 'Glam',
       description: 'Rich metallic accents with shiny layers for your show-stopping look.',
-      image: 'images/LOeQ2.jpg'
+      image: imagePath('LOeQ2.jpg')
     },
     {
       title: 'Experimental',
       description: 'Unexpected textures, color blocks, and mixed finishes for bold nails.',
-      image: 'images/NPkEs.jpg'
+      image: imagePath('NPkEs.jpg')
     }
   ];
   options.forEach((option) => {
