@@ -4,22 +4,34 @@ Set is a single-page nail inspiration app for finding, saving, and organizing na
 
 ## Preview
 
-![Set app preview](./preview.png)
+![Set preview](preview.png)
 
-## What it does
+## What Set Does
 
-- Browse nail designs in a Pinterest-style gallery
-- Filter by color, shape, and length
+Set helps users find nail inspiration faster by organizing designs by color, shape, length, theme, season, and vibe.
+
+Instead of scrolling endlessly through random inspiration, users can save designs, compare options, build nail sets from multiple references, and get help choosing a final look before an appointment.
+
+## Planned Features
+
+- Browse nail designs by category
 - Save favorite designs
-- Organize ideas into boards
-- Build a “show my tech” collage
-- Stores saved boards with `localStorage`
+- Create inspiration boards
+- Filter by color, shape, length, season, and theme
+- Combine multiple saved designs into one custom set
+- AI-assisted “help me choose” feature
+- Appointment-ready nail idea summaries
 
-## Why I made it
+## Why I’m Building It
 
-Set helps users stop endless scrolling and quickly find the exact nail look they want before going to their nail tech.
+People often know the vibe they want but struggle to find the exact design quickly. Set is designed to make nail inspiration easier, faster, and more organized.
 
-## Run locally
+## Tech Stack
 
-```bash
-python3 -m http.server 8000
+- HTML
+- CSS
+- JavaScript
+
+## Project Status
+
+Early prototype. The current version focuses on layout, visual direction, and the core inspiration-browsing experience.
